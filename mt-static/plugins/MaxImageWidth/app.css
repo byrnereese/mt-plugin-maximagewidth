@@ -1,0 +1,15 @@
+#create_thumbnail-field {
+  display: none;
+}
+#create_thumbnail_cb {
+  float: left;
+  padding-right: 10px;
+}
+#width-slider {
+  float: left;
+  width: 200px;
+}
+#w-h {
+  width: 120px;
+  float: left;
+}
