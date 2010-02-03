@@ -24,7 +24,6 @@ sub asset_options_param {
     my $author        = $app->user;
     my $plugin        = MT->component('MaxImageWidth');
     my $config        = $plugin->get_config_hash( 'blog:' . $blog->id );
-#    return if !$config->{supr_enable};
 
     my $max_width     = $config->{max_image_width};
     $max_width ||= $param->{width};
@@ -74,9 +73,12 @@ sub asset_options_param {
               \$('#thumb_width').val( ui.value );
               \$('#thumb_height').val( Math.floor( (full_height * ui.value ) / full_width) );
           },
-          max: $param->{width} 
+          max: max_width
         });
         \$('#width-slider').slider('value', max_width);
+        if (full_width > max_width) {
+            \$('#thumb_width').trigger('change');
+        }
     });
 </script>
         <div id="create_thumbnail_cb">
